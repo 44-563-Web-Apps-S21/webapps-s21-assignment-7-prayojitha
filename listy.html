@@ -48,16 +48,16 @@
       let listyItems = document.getElementsByClassName("listy");
       //var randomValue = getRandomInteger(0, listyItems.length);
       //console.log("randomValue", randomValue);
-    //   if (listyItems.length > 9) {
-    //     for (let i = 0; i < listyItems.length; i++) {
-    //       if (userValue[0].value == listyItems[i].innerHTML) {
-    //         listyItems[i].remove();
-    //         console.log(userValue[0].value);
-    //       }
-    //     }
-    //   } else if (listyItems.length == 9) {
-    //     listyItems[randomValue].remove();
-    //   }
+       if (listyItems.length > 9) {
+         for (let i = 0; i < listyItems.length; i++) {
+           if (userValue[0].value == listyItems[i].innerHTML) {
+             listyItems[i].remove();
+             console.log(userValue[0].value);
+           }
+         }
+       } else if (listyItems.length == 9) {
+         listyItems[userValue[0]].remove();
+       }
       if (userValue[0].value != "") {
         /* make the div and its text */
         var element = document.createElement("div");
