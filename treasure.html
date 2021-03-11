@@ -20,42 +20,81 @@
 
 <div class="container">
     <div class="row">
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
+        <div onclick="makeGuess(0)" ><img src="treasurehiding.jpg" id ="treasure1"></div>
+        <div onclick="makeGuess(1)" ><img src="treasurehiding.jpg" id ="treasure2"></div>
+        <div onclick="makeGuess(2)" ><img src="treasurehiding.jpg" id ="treasure3"></div>
+        <div onclick="makeGuess(3)" ><img src="treasurehiding.jpg" id ="treasure4"></div>
+        <div onclick="makeGuess(4)" ><img src="treasurehiding.jpg" id ="treasure5"></div>
     </div>
     <div class="row">
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
+        <div onclick="makeGuess(5)" ><img src="treasurehiding.jpg" id ="treasure6"></div>
+        <div onclick="makeGuess(6)" ><img src="treasurehiding.jpg" id ="treasure7"></div>
+        <div onclick="makeGuess(7)" ><img src="treasurehiding.jpg" id ="treasure8"></div>
+        <div onclick="makeGuess(8)" ><img src="treasurehiding.jpg" id ="treasure9"></div>
+        <div onclick="makeGuess(9)" ><img src="treasurehiding.jpg" id ="treasure10"></div>
         
     </div>
     <div class="row">
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
+        <div onclick="makeGuess(10)" ><img src="treasurehiding.jpg" id ="treasure11"></div>
+        <div onclick="makeGuess(11)" ><img src="treasurehiding.jpg" id ="treasure12"></div>
+        <div onclick="makeGuess(12)" ><img src="treasurehiding.jpg" id ="treasure13"></div>
+        <div onclick="makeGuess(13)" ><img src="treasurehiding.jpg" id ="treasure14"></div>
+        <div onclick="makeGuess(14)" ><img src="treasurehiding.jpg" id ="treasure15"></div>
 
     </div>
     <div class="row">
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
+        <div onclick="makeGuess(15)"><img src="treasurehiding.jpg" id ="treasure16"></div>
+        <div onclick="makeGuess(16)"><img src="treasurehiding.jpg" id ="treasure17"></div>
+        <div onclick="makeGuess(17)"><img src="treasurehiding.jpg" id ="treasure18"></div>
+        <div onclick="makeGuess(18)"><img src="treasurehiding.jpg" id ="treasure19"></div>
+        <div onclick="makeGuess(19)"><img src="treasurehiding.jpg" id ="treasure20"></div>
     </div>
     <div class="row">
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
-        <div><img src="treasurehiding.jpg"></div>
+        <div onclick="makeGuess(20)" ><img src="treasurehiding.jpg" id ="treasure21"></div>
+        <div onclick="makeGuess(21)" ><img src="treasurehiding.jpg" id ="treasure22"></div>
+        <div onclick="makeGuess(22)" ><img src="treasurehiding.jpg" id ="treasure23"></div>
+        <div onclick="makeGuess(23)" ><img src="treasurehiding.jpg" id ="treasure24"></div>
+        <div onclick="makeGuess(24)" ><img src="treasurehiding.jpg" id ="treasure25"></div>
     </div>
 </div>
+<script>
+    var ids = ["treasure1","treasure2","treasure3","treasure4","treasure5","treasure6","treasure7","treasure8","treasure9","treasure10","treasure11","treasure12","treasure13","treasure14","treasure15","treasure16","treasure17","treasure18","treasure19","treasure20","treasure21","treasure22","treasure23","treasure24","treasure25"]
+    var clickCount = 0
+    var treasureLocation = 18
+    function makeGuess(position){
+        // document.getElementById(ids[position]) = ids[position]
+        if((position+1) == treasureLocation){
+            console.log("Entered..... 18");
+            //var treasureImage= document.querySelector("#treasure18 img");
+            document.getElementById(ids[position]).src = "treasure.jpg";
+        }
+        else{
+            document.getElementById(ids[position]).src = "empty-treasure.jpg"
+        }
+        clickCount++;
+        document.getElementById("clicks").innerHTML="Number of clicks is: " + clickCount;
+        distance(position,treasureLocation)
+
+    }
+    function distance(pos1,pos2){
+        if(pos1>pos2){
+            big = pos1;
+            small = pos2;
+        }else {
+            big = pos2;
+            small = pos1;    
+        }
+        console.log(big, small);
+        var steps = 0, finalDistance = 0;
+        while(small<=big){
+            small = small + 5;
+            steps++;
+        }
+        steps = steps-1;
+        small = small-5;
+        finalDistance = steps + (big-small);
+        document.getElementById("distance").innerHTML="Distance is: " + finalDistance;
+    }
+</script>
 </body>
 </html>
