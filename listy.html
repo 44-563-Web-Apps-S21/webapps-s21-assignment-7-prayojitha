@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>list page</title>
+    <style>
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        background-color: red;
+      }
+
+      /*div children of the flex container*/
+      .flex-container > div {
+        background-color: #f1f1f1;
+        margin: 10px;
+        padding: 20px;
+        font-size: 30px;
+      }
+
+      /* Responsive layout */
+      @media (max-width: 600px) {
+        .flex-container {
+          flex-direction: column;
+          background-color: green;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Keerthi Prayojitha builds a list</h3>
+    <input type="text" />
+    <div class="flex-container" id="target">
+      <div class="listy">row item 1</div>
+      <div class="listy">row item 2</div>
+      <div class="listy">row item 3</div>
+    </div>
+
+    <p>
+      Press the button to create an new element of type div and then add it to
+      the container.
+    </p>
+    <button onclick="makeNewDiv()">Add one</button>
+  </body>
+  <script>
+    function makeNewDiv() {
+      let userValue = document.getElementsByTagName("input");
+      let listyItems = document.getElementsByClassName("listy");
+      //var randomValue = getRandomInteger(0, listyItems.length);
+      //console.log("randomValue", randomValue);
+    //   if (listyItems.length > 9) {
+    //     for (let i = 0; i < listyItems.length; i++) {
+    //       if (userValue[0].value == listyItems[i].innerHTML) {
+    //         listyItems[i].remove();
+    //         console.log(userValue[0].value);
+    //       }
+    //     }
+    //   } else if (listyItems.length == 9) {
+    //     listyItems[randomValue].remove();
+    //   }
+      if (userValue[0].value != "") {
+        /* make the div and its text */
+        var element = document.createElement("div");
+        element.className = "listy";
+        element.innerHTML = userValue[0].value;
+
+        /* add it to the container */
+        document.getElementById("target").appendChild(element);
+      }
+    }
+
+    // function getRandomInteger(min, max) {
+    //   min = Math.ceil(min);
+    //   max = Math.floor(max);
+    //   return Math.floor(Math.random() * (max - min + 1) + min); 
+    // }
+  </script>
+</html>
