@@ -46,8 +46,8 @@
     function makeNewDiv() {
       let userValue = document.getElementsByTagName("input");
       let listyItems = document.getElementsByClassName("listy");
-      //var randomValue = getRandomInteger(0, listyItems.length);
-      //console.log("randomValue", randomValue);
+      var randomValue = getRandomInteger(0, listyItems.length);
+      console.log("randomValue", randomValue);
        if (listyItems.length > 9) {
          for (let i = 0; i < listyItems.length; i++) {
            if (userValue[0].value == listyItems[i].innerHTML) {
@@ -56,7 +56,7 @@
            }
          }
        } else if (listyItems.length == 9) {
-         listyItems[userValue[0]].remove();
+         listyItems[randomValue].remove();
        }
       if (userValue[0].value != "") {
         /* make the div and its text */
@@ -69,10 +69,10 @@
       }
     }
 
-    // function getRandomInteger(min, max) {
-    //   min = Math.ceil(min);
-    //   max = Math.floor(max);
-    //   return Math.floor(Math.random() * (max - min + 1) + min); 
-    // }
+     function getRandomInteger(min, max) {
+       min = Math.ceil(min);
+       max = Math.floor(max);
+       return Math.floor(Math.random() * (max - min + 1) + min); 
+     }
   </script>
 </html>
